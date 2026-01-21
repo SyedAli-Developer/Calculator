@@ -1,0 +1,63 @@
+:root {
+  --border-color: #e2b714; /* A shade of dodger blue */
+  --text-color: #d1d0c5;   /* text */
+  --bg-color: #2c2f33; /*  background */
+  --bg2-color: #323437; /* background 2 */
+  --bg-btn:#ff6600; /* button background */
+  --op-btn:#616161; /* operator button background */
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg2-color); ;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.calc-box {
+  height: 600px;
+  width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+.result-div{
+  height: 150px;
+  width: 100%;
+  margin-bottom: 20px;
+  border: 2px solid #e2b714;
+  border-radius: 5px;
+  background-color: var(--bg2-color);
+  font-size: 36px;
+  text-align: right;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.btns{
+  
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+.btn1{
+  height: 60px;
+  font-size: 24px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--bg2-color);
+  color: var(--text-color);
+  cursor: pointer;
+}
+.op{
+  background-color: var(--op-btn);
+}
+.AC{
+  background-color: var(--bg-btn);
+  color: var(--bg-color);
+}

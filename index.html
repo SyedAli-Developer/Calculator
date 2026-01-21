@@ -5,21 +5,62 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simple Calculator</title>
+
   <link rel="stylesheet" href="style.css">
+
   <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
 </head>
 
 <body>
 
-  <div class="calculator">
-
+  <div class="calc-box relative">
+    <!-- result div started -->
+    <div id="result" class="result-div relative flex flex-col justify-between">
+      <button id="history" class=" hover:border-[2px] bg-[#ff6600] text-[#2c2f33] hover:text-[#fff] hover:bg-[#323437] hover:border-[#d1d0c5] text-[14px] w-[80px] h-[25px] rounded-[12px] duration-[1s] tracking-widest cursor-pointer">History</button>
+      <div id="main-result" class=" text-[3rem] ">
+        0
+      </div>
+      <div id="subhistory" class=" text-[1rem] text-gray-400">
+        
+      </div>
+      
+    </div>  
+    <!-- result div ended -->
+<!-- -=-=-=-=-=-=-=-=-=-=-=--==-=-=-=-=-=--==-=-=-=-=-=--=-==-=-=- -->
+    <!-- btns div started -->
+    <div class="btns relative">
+      
+      <button id="allclear" class="btn1 AC">AC</button>
+      <button id="modulus" class="btn1 op">%</button>
+      <button id="remove" class="btn1 op">X</button>
+      <button id="divide" class="btn1 op">/</button>
+      <button id="num7" class="btn1">7</button>
+      <button id="num8" class="btn1">8</button>
+      <button id="num9" class="btn1">9</button>
+      <button id="multiply" class="btn1 op">X</button>
+      <button id="num4" class="btn1">4</button>
+      <button id="num5" class="btn1">5</button>
+      <button id="num6" class="btn1">6</button>
+      <button id="minus" class="btn1 op">-</button>
+      <button id="num1" class="btn1">1</button>
+      <button id="num2" class="btn1">2</button>
+      <button id="num3" class="btn1">3</button>
+      <button id="plus" class="btn1 op">+</button>
+      <button id="dzero" class="btn1">00</button>
+      <button id="zero" class="btn1">0</button>
+      <button id="dot" class="btn1">.</button>
+      <button id="equal" class="btn1 AC">=</button>
+      
+    </div>
+    <!-- btns div ended -->
   </div>
-
-
-
-
-
+  
+  
+  
+  
+  
 
 
   <script src="script.js"></script>
