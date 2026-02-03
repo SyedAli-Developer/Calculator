@@ -47,6 +47,7 @@ body {
   height: 20px;
   overflow: hidden;
   cursor: pointer;
+   user-select: none;
 }
 .history:hover{
   opacity: 1;
@@ -82,20 +83,27 @@ body {
   cursor: pointer;
   color: var(--text-color);
   background-color: var(--number-bg-color);
-  
+  user-select: none;
 }
 .number-btn:hover{
   background-color: var(--op-btn);
+  transition-duration: 300ms;
 }
 .operators{
   background-color: var(--op-btn);
 }
 .operators:hover{
   background-color: var(--number-bg-color);
+  transition-duration: 300ms;
 }
 .O-btn{
   background-color: var(--bg-btn);
   color: black;
+}
+.O-btn:hover{
+  background-color: var(--op-btn);
+  color: var(--text-color);
+  transition-duration: 300ms;
 }
 #minus , #plus , #multiply , #divide , #dot{
   font-size: 36px;
