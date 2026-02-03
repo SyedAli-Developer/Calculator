@@ -39,7 +39,6 @@ function WriteNumber(number) {
     }
     else if (result.textContent === '0' && number === '.') {
         result.textContent = '0.';
-        console.log(result.innerHTML)
     }
     else if(number === '00' && result.textContent === '0') {
         result.textContent = '0';
@@ -49,11 +48,9 @@ function WriteNumber(number) {
     }
     else if (result.textContent === '0' && number !== '0') {
         result.textContent = number;
-        console.log(result.innerHTML)
     }
     else {
         result.textContent += number;
-        console.log(result.innerHTML)
     }
 }
 function ClearAll() {
