@@ -1,14 +1,15 @@
 :root {
   --border-color: #e2b714; /* Border color */
   --text-color: #d1d0c5;   /* text */
-  --number-bg-color: #2c2f33; /*number button background dark*/
+  --number-bg-color: #323437; /*number button background dark*/
   --bg-color: #323437; /* background light*/
-  --bg-btn:#ff6600; /* button background */
+  --bg-btn:#ff6600; /* special button background */
   --op-btn:#616161; /* operator button background */
+  --calculator-bg:#2c2f33; /* calculator background */
 }
 body {
   font-family: Arial, sans-serif;
-  background-color: var(--number-bg-color); ;
+  background-color: var(--bg-color); ;
   margin: 0;
   padding: 0;
   display: flex;
@@ -20,7 +21,7 @@ body {
 }
 .calculator-container {
   margin-top: 50px;
-  background-color: var(--bg-color);
+  background-color: var(--calculator-bg);
   border: 2px solid var(--border-color);
   border-radius: 10px;
   padding: 20px;
@@ -31,9 +32,9 @@ body {
   background-color: var(--bg-color);
   border: 2px solid var(--border-color);
   border-radius: 10px;
-  padding: 5px 10px;
-  height: 100px;
-  margin-bottom: 20px;
+  padding: 0px 5px;
+  height: 110px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -53,25 +54,49 @@ body {
   transition-duration: 300ms;
 }
 .result{
-  font-size: 24px;
+  font-size: 32px;
   text-align: right;
   color: var(--text-color);
   display: flex;
   flex-direction: row-reverse;
   flex-wrap: wrap;
 }
+.subhistory{
+  text-align: right;
+  font-size: 14px;
+  color: var(--text-color);
+  opacity: 0.7;
+  
+}
 .number-pad {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
-  font-size: 24px;
+  font-size: 22px;
 }
+
 .btns {
-  height: 45px;
+  height: 60px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   color: var(--text-color);
   background-color: var(--number-bg-color);
-
+  
+}
+.number-btn:hover{
+  background-color: var(--op-btn);
+}
+.operators{
+  background-color: var(--op-btn);
+}
+.operators:hover{
+  background-color: var(--number-bg-color);
+}
+.O-btn{
+  background-color: var(--bg-btn);
+  color: black;
+}
+#minus , #plus , #multiply , #divide , #dot{
+  font-size: 36px;
 }
