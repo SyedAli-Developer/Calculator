@@ -18,10 +18,13 @@
   <div class="calc-box relative">
     <!-- result div started -->
     <div id="result" class="result-div relative flex flex-col justify-between">
+
       <button id="history" class=" hover:border-[2px] bg-[#ff6600] text-[#2c2f33] hover:text-[#fff] hover:bg-[#323437] hover:border-[#d1d0c5] text-[14px] w-[80px] h-[25px] rounded-[12px] duration-[1s] tracking-widest cursor-pointer">History</button>
+      
       <div id="main-result" class=" text-[3rem] ">
         0
       </div>
+
       <div id="subhistory" class=" text-[1rem] text-gray-400">
         
       </div>
@@ -30,28 +33,28 @@
     <!-- result div ended -->
 <!-- -=-=-=-=-=-=-=-=-=-=-=--==-=-=-=-=-=--==-=-=-=-=-=--=-==-=-=- -->
     <!-- btns div started -->
-    <div class="btns relative">
+    <div class="number-pad relative">
       
       <button id="allclear" class="btn1 AC">AC</button>
+      <button id="remove" class="btn1 AC"><li>X</li></button>
       <button id="modulus" class="btn1 op">%</button>
-      <button id="remove" class="btn1 op">X</button>
-      <button id="divide" class="btn1 op">/</button>
-      <button id="num7" class="btn1">7</button>
-      <button id="num8" class="btn1">8</button>
-      <button id="num9" class="btn1">9</button>
-      <button id="multiply" class="btn1 op">X</button>
-      <button id="num4" class="btn1">4</button>
-      <button id="num5" class="btn1">5</button>
-      <button id="num6" class="btn1">6</button>
-      <button id="minus" class="btn1 op">-</button>
-      <button id="num1" class="btn1">1</button>
-      <button id="num2" class="btn1">2</button>
-      <button id="num3" class="btn1">3</button>
+      <button id="divide" class="btn1 op">&divide;</button>
+      <button id="num7" class="btn-number btn1">7</button>
+      <button id="num8" class="btn-number btn1">8</button>
+      <button id="num9" class="btn-number btn1">9</button>
+      <button id="multiply" class="btn1 op">&times;</button>
+      <button id="num4" class="btn-number btn1">4</button>
+      <button id="num5" class="btn-number btn1">5</button>
+      <button id="num6" class="btn-number btn1">6</button>
+      <button id="minus" class="btn1 op"><i class="fa-solid fa-minus"></i></button>
+      <button id="num1" class="btn-number btn1">1</button>
+      <button id="num2" class="btn-number btn1">2</button>
+      <button id="num3" class="btn-number btn1">3</button>
       <button id="plus" class="btn1 op">+</button>
-      <button id="dzero" class="btn1">00</button>
-      <button id="zero" class="btn1">0</button>
+      <button id="dzero" class="btn-number btn1">00</button>
+      <button id="zero" class="btn-number btn1">0</button>
       <button id="dot" class="btn1">.</button>
-      <button id="equal" class="btn1 AC">=</button>
+      <button id="equals" class="btn1 AC">=</button>
       
     </div>
     <!-- btns div ended -->
@@ -64,6 +67,8 @@
 
 
   <script src="script.js"></script>
+
+  <script src="https://kit.fontawesome.com/0b93ff58c6.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

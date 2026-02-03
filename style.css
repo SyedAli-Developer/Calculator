@@ -18,7 +18,7 @@ body {
 }
 
 .calc-box {
-  height: 600px;
+  height: 500px;
   width: 400px;
   margin: auto;
   padding: 20px;
@@ -39,14 +39,13 @@ body {
   padding: 10px;
   box-sizing: border-box;
 }
-.btns{
-  
+.number-pad {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
+  grid-gap: 8px;
 }
 .btn1{
-  height: 60px;
+  height: 50px;
   font-size: 24px;
   border: none;
   border-radius: 10px;
@@ -54,10 +53,20 @@ body {
   color: var(--text-color);
   cursor: pointer;
 }
+.btn1:hover{
+  background-color: var(--op-btn);
+}
 .op{
   background-color: var(--op-btn);
 }
-.AC{
+
+#divide , #multiply ,#plus  , #equals {
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.AC {
   background-color: var(--bg-btn);
   color: var(--bg-color);
 }
