@@ -6,7 +6,7 @@ result.textContent = '0';
 subhistory.textContent = '';
 
 // numbers 
-const num1 = document.getElementById('num1');
+const num = document.querySelectorAll('.number-btn');
 const num2 = document.getElementById('num2');
 const num3 = document.getElementById('num3');
 const num4 = document.getElementById('num4');
@@ -24,8 +24,8 @@ const plus = document.getElementById('plus');
 const minus = document.getElementById('minus');
 const multiply = document.getElementById('multiply');
 const divide = document.getElementById('divide');
-const equal = document.getElementById('equal');
-const percent = document.getElementById('percent');
+const equals = document.getElementById('equals');
+const modulus = document.getElementById('modulus');
 
 // Clear buttons
 
@@ -64,20 +64,76 @@ function removeLast(){
     else if (result.textContent.length === 1) {
         result.textContent = '0';
     }
+}function AddOperator(operator) {
+  const currentContent = result.textContent;
+  const lastChar = currentContent.slice(-1);
+  const operators = ['+', '-', 'X', '/'];
+
+  // 1. Agar screen "0" hai aur "-" dabaya, to usay negative sign bana do
+  if (currentContent === "0" && operator === "-") {
+    result.textContent = "-";
+    return;
+  }
+  
+  // Extra Check: Agar screen khali ya "0" hai aur koi aur operator dabaya, to return
+  if ((currentContent === "" || currentContent === "0") && operator !== "-") return;
+
+  // 2. Agar aakhri character pehle se operator hai, to swap/replace karo
+  if (operators.includes(lastChar)) {
+    result.textContent = currentContent.slice(0, -1) + operator;
+    return;
+  }
+
+  // 3. FIX: Pehle character ke BAAD check karo ke koi operator hai ya nahi
+  // Hum slice(1) use karenge taake shuru wala "-" ignore ho jaye
+  const contentAfterFirstChar = currentContent.slice(1);
+  const hasOperator = operators.some(op => contentAfterFirstChar.includes(op));
+
+  if (hasOperator) {
+    console.log("Ek calculation pehle se jari hai");
+    return; 
+  } else {
+    // 4. Agar koi operator nahi mila (ya sirf shuru mein minus hai), to add kar do
+    result.textContent += operator;
+  }
 }
+
+function Calc(fnum , opSymbol , snum) {
+    console.log(`Calculating: ${fnum} ${opSymbol} ${snum}`);
+    if (opSymbol === '+') {
+        return fnum + snum;
+    }   
+    else if (opSymbol === '-') {
+        return fnum - snum;
+    }
+    else if (opSymbol === 'X') {
+        return fnum * snum;
+    }
+    else if (opSymbol === '/') {
+        return fnum / snum;
+    }
+    else if (opSymbol === '%') {
+        return fnum % snum;
+    }
+    else {
+        console.log('Invalid operator');
+        return null;
+    }
+}
+
+
 // Event Listeners 
-num1.addEventListener('click', () => WriteNumber('1'));
-num2.addEventListener('click', () => WriteNumber('2'));
-num3.addEventListener('click', () => WriteNumber('3'));
-num4.addEventListener('click', () => WriteNumber('4'));
-num5.addEventListener('click', () => WriteNumber('5'));
-num6.addEventListener('click', () => WriteNumber('6'));
-num7.addEventListener('click', () => WriteNumber('7'));
-num8.addEventListener('click', () => WriteNumber('8'));
-num9.addEventListener('click', () => WriteNumber('9'));
-num0.addEventListener('click', () => WriteNumber('0'));
-doubleZero.addEventListener('click', () => WriteNumber('00'));
-dot.addEventListener('click', () => WriteNumber('.'));
+document.querySelectorAll('.number-btn').forEach(button => {
+    button.addEventListener('click', () => WriteNumber(button.innerText));
+});
 
 allclear.addEventListener('click', ClearAll);
 remove.addEventListener('click', removeLast);
+
+plus.addEventListener('click', () => AddOperator('+'));
+minus.addEventListener('click', () => AddOperator('-'));
+multiply.addEventListener('click', () => AddOperator('X'));
+divide.addEventListener('click', () => AddOperator('/'));
+modulus.addEventListener('click', () => AddOperator('%'));
+
+equals.addEventListener('click', () => Calc(1 , '+' , 2)); // just for testing
