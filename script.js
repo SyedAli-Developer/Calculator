@@ -34,13 +34,13 @@ let allclear = document.getElementById('allclear');
 
 //Functions
 function WriteNumber(number) {
-    if(result.textContent.includes('.') && number === '.') {
+    if (result.textContent.includes('.') && number === '.') {
         return;
     }
     else if (result.textContent === '0' && number === '.') {
         result.textContent = '0.';
     }
-    else if(number === '00' && result.textContent === '0') {
+    else if (number === '00' && result.textContent === '0') {
         result.textContent = '0';
     }
     else if (result.textContent === '0' && number === '0') {
@@ -57,52 +57,53 @@ function ClearAll() {
     result.textContent = '0';
     subhistory.textContent = '';
 }
-function removeLast(){
+function removeLast() {
     if (result.textContent.length > 1) {
-        result.textContent= result.textContent.slice(0, -1); 
+        result.textContent = result.textContent.slice(0, -1);
     }
     else if (result.textContent.length === 1) {
         result.textContent = '0';
     }
-}function AddOperator(operator) {
-  const currentContent = result.textContent;
-  const lastChar = currentContent.slice(-1);
-  const operators = ['+', '-', 'X', '/'];
+} function AddOperator(operator) {
+    const currentContent = result.textContent;
+    const lastChar = currentContent.slice(-1);
+    const operators = ['+', '-', 'X', '/'];
 
-  // 1. Agar screen "0" hai aur "-" dabaya, to usay negative sign bana do
-  if (currentContent === "0" && operator === "-") {
-    result.textContent = "-";
-    return;
-  }
-  
-  // Extra Check: Agar screen khali ya "0" hai aur koi aur operator dabaya, to return
-  if ((currentContent === "" || currentContent === "0") && operator !== "-") return;
+    // 1. Agar screen "0" hai aur "-" dabaya, to usay negative sign bana do
+    if (currentContent === "0" && operator === "-") {
+        result.textContent = "-";
+        return;
+    }
 
-  // 2. Agar aakhri character pehle se operator hai, to swap/replace karo
-  if (operators.includes(lastChar)) {
-    result.textContent = currentContent.slice(0, -1) + operator;
-    return;
-  }
+    // Extra Check: Agar screen khali ya "0" hai aur koi aur operator dabaya, to return
+    if ((currentContent === "" || currentContent === "0") && operator !== "-") return;
 
-  // 3. FIX: Pehle character ke BAAD check karo ke koi operator hai ya nahi
-  // Hum slice(1) use karenge taake shuru wala "-" ignore ho jaye
-  const contentAfterFirstChar = currentContent.slice(1);
-  const hasOperator = operators.some(op => contentAfterFirstChar.includes(op));
+    // 2. Agar aakhri character pehle se operator hai, to swap/replace karo
+    if (operators.includes(lastChar)) {
+        result.textContent = currentContent.slice(0, -1) + operator;
+        return;
+    }
 
-  if (hasOperator) {
-    console.log("Ek calculation pehle se jari hai");
-    return; 
-  } else {
-    // 4. Agar koi operator nahi mila (ya sirf shuru mein minus hai), to add kar do
-    result.textContent += operator;
-  }
+    // 3. FIX: Pehle character ke BAAD check karo ke koi operator hai ya nahi
+    // Hum slice(1) use karenge taake shuru wala "-" ignore ho jaye
+    const contentAfterFirstChar = currentContent.slice(1);
+    const hasOperator = operators.some(op => contentAfterFirstChar.includes(op));
+
+    if (hasOperator) {
+        console.log("Ek calculation pehle se jari hai");
+        return;
+    } else {
+        // 4. Agar koi operator nahi mila (ya sirf shuru mein minus hai), to add kar do
+        result.textContent += operator;
+    }
 }
 
-function Calc(fnum , opSymbol , snum) {
+function Calc(fnum, opSymbol, snum) {
+
     console.log(`Calculating: ${fnum} ${opSymbol} ${snum}`);
     if (opSymbol === '+') {
         return fnum + snum;
-    }   
+    }
     else if (opSymbol === '-') {
         return fnum - snum;
     }
@@ -120,8 +121,64 @@ function Calc(fnum , opSymbol , snum) {
         return null;
     }
 }
+function Splitor(question) {
+    let arrayOfNumbers = [];
+    let firstnum = [];
+    let secondnum = [];
+    if (question.includes('+')) {
+        const operator = '+';
+        arrayOfNumbers.push(question.split(operator));
+        firstnum.push(arrayOfNumbers[0][0]);
+        secondnum.push(arrayOfNumbers[0][1]);
+        arrayOfNumbers.length = 0; // clear array
 
+        console.log(`This is the Question: ${question}`);
+        console.log(`Numbers are: ${firstnum} and ${secondnum}`);
+        console.log(`firstnumber: ${firstnum}`);
+        console.log(`operator: ${operator}`);
+        console.log(`secondnumber: ${secondnum}`);
+    }
+    else if (question.includes('-')) {
+        const operator = '-';
+        arrayOfNumbers.push(question.split(operator));
+        firstnum.push(arrayOfNumbers[0][0]);
+        secondnum.push(arrayOfNumbers[0][1]);
+        arrayOfNumbers.length = 0; // clear array
 
+        console.log(`This is the Question: ${question}`);
+        console.log(`Numbers are: ${firstnum} and ${secondnum}`);
+        console.log(`firstnumber: ${firstnum}`);
+        console.log(`operator: ${operator}`);
+        console.log(`secondnumber: ${secondnum}`);
+    }
+    else if (question.includes('X')) {
+        const operator = 'X';
+                arrayOfNumbers.push(question.split(operator));
+        firstnum.push(arrayOfNumbers[0][0]);
+        secondnum.push(arrayOfNumbers[0][1]);
+        arrayOfNumbers.length = 0; // clear array
+
+        console.log(`This is the Question: ${question}`);
+        console.log(`Numbers are: ${firstnum} and ${secondnum}`);
+        console.log(`firstnumber: ${firstnum}`);
+        console.log(`operator: ${operator}`);
+        console.log(`secondnumber: ${secondnum}`);
+    }
+    else if (question.includes('/')) {
+        const operator = '/';
+                arrayOfNumbers.push(question.split(operator));
+        firstnum.push(arrayOfNumbers[0][0]);
+        secondnum.push(arrayOfNumbers[0][1]);
+        arrayOfNumbers.length = 0; // clear array
+
+        console.log(`This is the Question: ${question}`);
+        console.log(`Numbers are: ${firstnum} and ${secondnum}`);
+        console.log(`firstnumber: ${firstnum}`);
+        console.log(`operator: ${operator}`);
+        console.log(`secondnumber: ${secondnum}`);
+    }
+    Calc(Number(firstnum), operator, Number(secondnum));
+}
 // Event Listeners 
 document.querySelectorAll('.number-btn').forEach(button => {
     button.addEventListener('click', () => WriteNumber(button.innerText));
@@ -136,4 +193,5 @@ multiply.addEventListener('click', () => AddOperator('X'));
 divide.addEventListener('click', () => AddOperator('/'));
 modulus.addEventListener('click', () => AddOperator('%'));
 
-equals.addEventListener('click', () => Calc(1 , '+' , 2)); // just for testing
+equals.addEventListener('click', () => Splitor(result.textContent)); // just for testing
+
