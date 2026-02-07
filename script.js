@@ -195,3 +195,5 @@ modulus.addEventListener('click', () => AddOperator('%'));
 
 equals.addEventListener('click', () => Splitor(result.textContent)); // just for testing
 
+
+
